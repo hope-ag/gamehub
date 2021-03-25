@@ -43,4 +43,14 @@
       margin: 0.5rem;
     }
   }
+  animation: slide 0.3s ease-in;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(-2rem);
+  }
+  100% {
+    transform: translateY();
+  }
 }

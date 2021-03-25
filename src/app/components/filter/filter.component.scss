@@ -2,6 +2,9 @@
 section {
   padding: 1rem;
   background-color: $clr-primary;
+  @include tablet {
+    margin-bottom: 3.5rem;
+  }
   h2 {
     margin-bottom: 2rem;
   }
@@ -19,12 +22,56 @@ section {
         color: lightgray;
       }
     }
-    .score {
-    }
 
     button {
       margin-left: auto;
       display: block;
+    }
+
+    .dropdown-group {
+      position: relative;
+      .dropdown {
+        background-color: $clr-secondary;
+        width: 100%;
+        padding: 0 1rem;
+        @include flex-row;
+        justify-content: space-between;
+        border-radius: 0;
+        .arrow {
+          border: solid $clr-txt;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          padding: 5px;
+        }
+
+        &:hover {
+          transform: translate(0);
+        }
+      }
+      .inputs {
+        background-color: $clr-secondary;
+        width: 100%;
+        @include transition-medium;
+        transform: scaleY(0);
+        transform-origin: top;
+        &.shown {
+          transform: scaleY(1);
+        }
+        input {
+          display: none;
+        }
+        label {
+          display: block;
+
+          padding: 1rem;
+          &:hover,
+          &:active,
+          &:focus,
+          &.active {
+            background: lighten($clr-secondary, 20%);
+          }
+        }
+      }
     }
   }
 }

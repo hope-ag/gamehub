@@ -1,5 +1,9 @@
+@import "../../../config";
 .home {
   display: grid;
-  grid-template-columns: 35rem 1fr;
+  grid-template-columns: 30rem 1fr;
   gap: 2rem;
+  @include tablet {
+    display: block;
+  }
 }

@@ -17,13 +17,70 @@
       name="score"
       formControlName="score"
     />
+    <!-- Because every browser and OS applies its own 
+native styling to dropdowns, I used radio buttons  here to 
+create the needed custom dropdown.
+-->
 
-    <label for="category">Category</label>
-    <select name="category" id="category" formControlName="order">
-      <option value="0">Order By</option>
-      <option value="score">Score</option>
-      <option value="name">Name</option>
-    </select>
-    <button>Clear</button>
+    <div class="dropdown-group">
+      <button class="dropdown" (click)="toggleDropdown()">
+        <span *ngIf="!filterForm.value.order"> --Sort By-- </span>
+        <span *ngIf="filterForm.value.order">
+          {{ filterForm.value.order }}
+        </span>
+        <div class="arrow"></div>
+      </button>
+      <div class="inputs" [ngClass]="{ shown: dropdownShown }">
+        <label
+          (click)="toggleDropdown()"
+          [ngClass]="{ active: filterForm.value.order === 'date' }"
+          for="date"
+          >Release date</label
+        >
+        <input
+          type="radio"
+          name="order"
+          value="date"
+          id="date"
+          formControlName="order"
+        />
+        <label
+          (click)="toggleDropdown()"
+          [ngClass]="{ active: filterForm.value.order === 'score' }"
+          for="score"
+          >score</label
+        >
+        <input
+          formControlName="order"
+          value="score"
+          type="radio"
+          name="order"
+          id="score"
+        />
+        <label
+          (click)="toggleDropdown()"
+          [ngClass]="{ active: filterForm.value.order === 'name' }"
+          for="name"
+          >Name</label
+        >
+        <input
+          type="radio"
+          name="order"
+          value="name"
+          id="name"
+          formControlName="order"
+        />
+      </div>
+    </div>
+
+    <button (click)="clear()">Clear</button>
   </form>
 </section>
+
+<!-- 
+   <label for="category">Category</label>
+<select name="category" id="category" formControlName="order">
+  <option value="0">Order By</option>
+  <option value="score">Score</option>
+  <option value="name">Name</option>
+</select> -->
