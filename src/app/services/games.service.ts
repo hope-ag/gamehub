@@ -32,27 +32,23 @@ export class GamesService {
 
   filterByName(name: string) {
     if (!name) {
-      return;
+      return this.setGameList(this.allGames);
     }
     const newGames: Games = [...this.allGames].filter((game: Game) =>
       game.name.toLowerCase().includes(name)
     );
     this.setGameList(newGames);
-
-    console.log(this.getGameList());
   }
 
   filterByScore(score: number) {
     if (!score) {
-      return;
+      return this.setGameList(this.allGames);
     }
     this.setGameList(
       this.getGameList().filter((game: Game) => {
         return game.rating! >= score * 10;
       })
     );
-
-    console.log(this.getGameList());
   }
   sortByProperty(property: string) {
     switch (property) {

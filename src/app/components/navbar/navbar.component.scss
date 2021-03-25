@@ -30,6 +30,9 @@ header {
         top: -3rem;
         left: -4rem;
         display: none;
+        @include mobile {
+          top: -2rem;
+        }
       }
 
       &.active:after {
