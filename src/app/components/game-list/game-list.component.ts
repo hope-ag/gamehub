@@ -21,6 +21,12 @@ export class GameListComponent implements OnInit, OnDestroy {
       this.loading = false;
     });
   }
+  updateOnchanges() {
+    return this.gameService.getRefresh().subscribe((data) => {
+      this.resultsFromSearch = data;
+      this.updateUi();
+    });
+  }
   ngOnInit(): void {
     /*Since the same list is always returned, its good to store it in a service
      for the entire session so we dont continuously ping the
@@ -28,16 +34,10 @@ export class GameListComponent implements OnInit, OnDestroy {
     if (!this.gameService.allGames) {
       this.initializeGameList();
     } else {
-      // setTimeout(() => {
       this.games = this.gameService.getGameList();
       this.loading = false;
-      // }, 2000);
     }
-    this.gameService.getRefresh().subscribe((data) => {
-      this.resultsFromSearch = data;
-      this.updateUi();
-      console.log(data);
-    });
+    this.updateOnchanges();
   }
 
   updateUi() {
@@ -48,5 +48,6 @@ export class GameListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.initializeGameList().unsubscribe();
+    this.updateOnchanges().unsubscribe();
   }
 }
