@@ -22,15 +22,16 @@ export class FilterComponent implements OnInit {
   }
 
   clear() {
+    //Reset the value of form fields
     this.filterForm.value.name &&
       this.filterForm.reset(this.filterForm.value.name);
     this.filterForm.value.score &&
       this.filterForm.reset(this.filterForm.value.score);
     this.filterForm.value.order &&
       this.filterForm.reset(this.filterForm.value.order);
-    console.log(this.filterForm.value.order);
+    // Restore the list to normal
     this.gameService.setGameList(this.gameService.allGames);
-    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
+    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
   }
   toggleDropdown() {
     this.dropdownShown = !this.dropdownShown;
@@ -43,10 +44,10 @@ export class FilterComponent implements OnInit {
   }
   filterByName() {
     this.gameService.filterByName(this.filterForm.value.name);
-    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
+    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
   }
   filterByScore() {
     this.gameService.filterByScore(parseInt(this.filterForm.value.score));
-    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
+    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
   }
 }

@@ -12,7 +12,7 @@ export class GamesService {
   allGames: Games;
   private refreshSubject$ = new BehaviorSubject<boolean>(true);
   constructor(private http: HttpClient) {}
-  navItemClicked(test: boolean) {
+  listUpdated(test: boolean) {
     this.refreshSubject$.next(test);
   }
   getRefresh() {

@@ -1,11 +1,11 @@
 @import "../../../config";
 
 header {
-  min-height: 10rem;
+  min-height: 15rem;
   background-color: transparent;
   nav {
     display: flex;
-    min-height: 10rem;
+    min-height: 14rem;
     align-items: center;
     gap: 5rem;
     @include tablet-sm {
