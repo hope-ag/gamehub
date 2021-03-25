@@ -8,7 +8,7 @@ header {
     min-height: 10rem;
     align-items: center;
     gap: 5rem;
-    @include tablet {
+    @include tablet-sm {
       flex-direction: column;
       gap: 3rem;
       margin-bottom: 1rem;
@@ -23,12 +23,12 @@ header {
     .contact {
       &:after {
         content: "Video";
-        font-size: 5rem;
+        font-size: clamp(3.5rem, 10vw, 5rem);
         position: absolute;
         font-weight: bolder;
         opacity: 0.3;
         top: -3rem;
-        left: -3.5rem;
+        left: -4rem;
         display: none;
       }
 
