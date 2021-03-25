@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { GamesService } from 'src/app/services/games.service';
 
 @Component({
   selector: 'app-filter',
@@ -10,7 +11,7 @@ export class FilterComponent implements OnInit {
   filterForm: FormGroup;
   dropdownShown = false;
 
-  constructor() {}
+  constructor(private gameService: GamesService) {}
 
   ngOnInit(): void {
     this.filterForm = new FormGroup({
@@ -28,8 +29,24 @@ export class FilterComponent implements OnInit {
     this.filterForm.value.order &&
       this.filterForm.reset(this.filterForm.value.order);
     console.log(this.filterForm.value.order);
+    this.gameService.setGameList(this.gameService.allGames);
+    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
   }
   toggleDropdown() {
     this.dropdownShown = !this.dropdownShown;
+  }
+  closeDropdown() {
+    this.dropdownShown = false;
+  }
+  sortByvalue(input) {
+    this.gameService.sortByProperty(input);
+  }
+  filterByName() {
+    this.gameService.filterByName(this.filterForm.value.name);
+    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
+  }
+  filterByScore() {
+    this.gameService.filterByScore(parseInt(this.filterForm.value.score));
+    this.gameService.navItemClicked(this.gameService.getGameList().length > 0);
   }
 }

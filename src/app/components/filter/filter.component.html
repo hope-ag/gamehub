@@ -3,6 +3,7 @@
   <form [formGroup]="filterForm">
     <label for="name">Name (Contains) </label>
     <input
+      (input)="filterByName()"
       placeholder="Text String"
       type="text"
       name="name"
@@ -11,6 +12,7 @@
 
     <label for="score">Minimum Score</label>
     <input
+      (input)="filterByScore()"
       class="score"
       placeholder="1 - 10"
       type="number"
@@ -25,16 +27,16 @@ create the needed custom dropdown.
     <div class="dropdown-group">
       <label for="sort">Order By</label>
 
-      <button id="sort" class="dropdown" (click)="toggleDropdown()">
+      <div id="sort" class="dropdown" (click)="toggleDropdown()">
         <span *ngIf="!filterForm.value.order"> --Sort By-- </span>
         <span *ngIf="filterForm.value.order">
           {{ filterForm.value.order }}
         </span>
         <div class="arrow"></div>
-      </button>
+      </div>
       <div class="inputs" [ngClass]="{ shown: dropdownShown }">
         <label
-          (click)="toggleDropdown()"
+          (click)="toggleDropdown(); sortByvalue('date')"
           [ngClass]="{ active: filterForm.value.order === 'date' }"
           for="date"
           >Release date</label
@@ -47,7 +49,7 @@ create the needed custom dropdown.
           formControlName="order"
         />
         <label
-          (click)="toggleDropdown()"
+          (click)="toggleDropdown(); sortByvalue('score')"
           [ngClass]="{ active: filterForm.value.order === 'score' }"
           for="score"
           >score</label
@@ -60,7 +62,7 @@ create the needed custom dropdown.
           id="score"
         />
         <label
-          (click)="toggleDropdown()"
+          (click)="toggleDropdown(); sortByvalue('name')"
           [ngClass]="{ active: filterForm.value.order === 'name' }"
           for="name"
           >Name</label
