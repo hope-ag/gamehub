@@ -1,0 +1,51 @@
+@import "../../../config";
+main {
+  .content {
+    width: clamp(5rem, 95vw, 50rem);
+    margin: auto;
+    .desc {
+      h2 {
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  form {
+    background-color: $clr-primary;
+    width: 100%;
+    margin-top: 5rem;
+    padding: 1rem;
+    input,
+    textarea {
+      background-color: $clr-secondary;
+      color: $clr-txt;
+      border: none;
+      outline: none;
+      width: inherit;
+      padding: 1rem;
+    }
+  }
+  label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .inputs {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    .name,
+    .email {
+      width: inherit;
+    }
+    @include tablet-sm {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+  }
+  button {
+    margin-left: auto;
+    display: block;
+    margin-top: 1.5rem;
+  }
+}

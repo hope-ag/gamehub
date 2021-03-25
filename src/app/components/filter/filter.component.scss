@@ -1,0 +1,30 @@
+@import "../../../config";
+section {
+  padding: 1rem;
+  background-color: $clr-primary;
+  h2 {
+    margin-bottom: 2rem;
+  }
+  form {
+    input,
+    select {
+      outline: none;
+      border: none;
+      width: 100%;
+      background-color: $clr-secondary;
+      color: $clr-txt;
+      margin-bottom: 3rem;
+      padding: 1rem;
+      &::placeholder {
+        color: lightgray;
+      }
+    }
+    .score {
+    }
+
+    button {
+      margin-left: auto;
+      display: block;
+    }
+  }
+}

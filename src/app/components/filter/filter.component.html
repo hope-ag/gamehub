@@ -1,0 +1,29 @@
+<section>
+  <h2>Filter results</h2>
+  <form [formGroup]="filterForm">
+    <label for="name">Name (Contains) </label>
+    <input
+      placeholder="Text String"
+      type="text"
+      name="name"
+      formControlName="name"
+    />
+
+    <label for="score">Minimum Score</label>
+    <input
+      class="score"
+      placeholder="1 - 10"
+      type="text"
+      name="score"
+      formControlName="score"
+    />
+
+    <label for="category">Category</label>
+    <select name="category" id="category" formControlName="order">
+      <option value="0">Order By</option>
+      <option value="score">Score</option>
+      <option value="name">Name</option>
+    </select>
+    <button>Clear</button>
+  </form>
+</section>

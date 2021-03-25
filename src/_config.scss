@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
+//variables
+$clr-primary: #0e1a2b;
+$clr-txt: #c1d1e8;
+$clr-white: #fff;
+$clr-secondary: #182c47;
+$clr-accent: #5692e8;
+$clr-black: #000;
+$radius: 0.5rem;
+$font-size: 1.4rem;
+
+//Mixins
+@mixin transition-short {
+  transition: all 0.3s ease-in-out;
+}
+@mixin transition-medium {
+  transition: all 0.5s ease-in-out;
+}
+@mixin transition-long {
+  transition: all 1s ease-in-out;
+}
+
+@mixin flex-row {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin pc {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin tiny {
+  @media screen and (max-width: 300px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+@mixin tablet-sm {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin ultra {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}

@@ -1,0 +1,13 @@
+<article class="item">
+  <div class="image"></div>
+  <div class="content">
+    <span class="text">
+      <h2>{{ game.name }}</h2>
+      <h5>Release date: {{ game.first_release_date | date }}</h5>
+      <p>
+        {{ game.summary | slice: 0:300 }}
+      </p>
+    </span>
+    <span class="rating">{{ (game.rating / 10).toFixed() }}</span>
+  </div>
+</article>

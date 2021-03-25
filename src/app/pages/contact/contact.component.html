@@ -1,0 +1,34 @@
+<main class="container">
+  <div class="content">
+    <div class="desc">
+      <h2>Get in touch</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aliquid
+        cum reiciendis. In labore ex dicta animi eaque ad corporis, quidem
+        perspiciatis unde consequatur modi, repudiandae iste, ipsa asperiores
+      </p>
+    </div>
+    <form [formGroup]="contactForm">
+      <div class="inputs">
+        <div class="name">
+          <label for="name">name <span>*</span></label>
+          <input name="name" type="text" formControlName="name" />
+        </div>
+        <div class="email">
+          <label for="email">Email <span>*</span></label>
+          <input name="email" type="email" formControlName="email" />
+        </div>
+      </div>
+      <label for="message">Message <span>*</span></label>
+      <textarea
+        cols="30"
+        draggable="true"
+        rows="5"
+        name="message"
+        spellcheck="true"
+        formControlName="message"
+      ></textarea>
+      <button>Send</button>
+    </form>
+  </div>
+</main>
