@@ -43,7 +43,7 @@ $font-size: 1.4rem;
   }
 }
 @mixin mobile {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 550px) {
     @content;
   }
 }

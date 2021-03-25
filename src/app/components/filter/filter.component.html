@@ -13,7 +13,7 @@
     <input
       class="score"
       placeholder="1 - 10"
-      type="text"
+      type="number"
       name="score"
       formControlName="score"
     />
@@ -23,7 +23,9 @@ create the needed custom dropdown.
 -->
 
     <div class="dropdown-group">
-      <button class="dropdown" (click)="toggleDropdown()">
+      <label for="sort">Order By</label>
+
+      <button id="sort" class="dropdown" (click)="toggleDropdown()">
         <span *ngIf="!filterForm.value.order"> --Sort By-- </span>
         <span *ngIf="filterForm.value.order">
           {{ filterForm.value.order }}
@@ -72,7 +74,6 @@ create the needed custom dropdown.
         />
       </div>
     </div>
-
     <button (click)="clear()">Clear</button>
   </form>
 </section>

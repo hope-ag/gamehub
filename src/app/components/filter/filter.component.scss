@@ -9,6 +9,9 @@ section {
     margin-bottom: 2rem;
   }
   form {
+    & > label {
+      margin-bottom: 2rem;
+    }
     input,
     select {
       outline: none;
@@ -20,6 +23,15 @@ section {
       padding: 1rem;
       &::placeholder {
         color: lightgray;
+      }
+    }
+    // Remove the dropdown on the number input
+    input[type="number"] {
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
       }
     }
 
@@ -62,7 +74,6 @@ section {
         }
         label {
           display: block;
-
           padding: 1rem;
           &:hover,
           &:active,
