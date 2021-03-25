@@ -20,6 +20,9 @@ export class FilterComponent implements OnInit {
       order: new FormControl(),
     });
   }
+  checkValidDataSource() {
+    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
+  }
 
   clear() {
     //Reset the value of form fields
@@ -31,7 +34,7 @@ export class FilterComponent implements OnInit {
       this.filterForm.reset(this.filterForm.value.order);
     // Restore the list to normal
     this.gameService.setGameList(this.gameService.allGames);
-    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
+    this.checkValidDataSource();
   }
   toggleDropdown() {
     this.dropdownShown = !this.dropdownShown;
@@ -44,10 +47,10 @@ export class FilterComponent implements OnInit {
   }
   filterByName() {
     this.gameService.filterByName(this.filterForm.value.name);
-    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
+    this.checkValidDataSource();
   }
   filterByScore() {
     this.gameService.filterByScore(parseInt(this.filterForm.value.score));
-    this.gameService.listUpdated(this.gameService.getGameList().length > 0);
+    this.checkValidDataSource();
   }
 }

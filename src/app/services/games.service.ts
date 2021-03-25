@@ -50,26 +50,44 @@ export class GamesService {
       })
     );
   }
+
+  //Sort Items by name, date or score used a
+  //switch statement to avoid rewriting the whole thing
+
   sortByProperty(property: string) {
     switch (property) {
       case 'name':
         this.setGameList(
-          this.getGameList().sort((a: Game, b: Game) =>
+          //The spread operator is used to prevent mutation to
+          //the source, which would cause the reset button to
+          //fail its task
+          [...this.getGameList()].sort((a: Game, b: Game) =>
             a.name.localeCompare(b.name)
           )
         );
+        /*Since there is no change to the source array, the components depending
+        on it would not update (but we need the ui to update)
+        so we call this observable so that the list will update since
+        theyve subscribed to this observable*/
+        this.listUpdated(this.allGames.length > 0);
         break;
       case 'date':
         this.setGameList(
-          this.getGameList().sort(
+          [...this.getGameList()].sort(
             (a: Game, b: Game) => a.first_release_date - b.first_release_date
           )
         );
+        this.listUpdated(this.allGames.length > 0);
+
         break;
       case 'score':
         this.setGameList(
-          this.getGameList().sort((a: Game, b: Game) => b.rating - a.rating)
+          [...this.getGameList()].sort(
+            (a: Game, b: Game) => b.rating - a.rating
+          )
         );
+        this.listUpdated(this.allGames.length > 0);
+
         break;
 
       default:
