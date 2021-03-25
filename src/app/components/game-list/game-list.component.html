@@ -2,9 +2,5 @@
 <h3 *ngIf="!loading && !resultsFromSearch">No Matching Results</h3>
 
 <ng-template [ngIf]="!loading && resultsFromSearch">
-  <app-game-item
-    (click)="updateUi()"
-    *ngFor="let game of games"
-    [game]="game"
-  ></app-game-item>
+  <app-game-item *ngFor="let game of games" [game]="game"></app-game-item>
 </ng-template>

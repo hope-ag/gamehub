@@ -40,6 +40,10 @@ export class GameListComponent implements OnInit, OnDestroy {
     this.updateOnchanges();
   }
 
+  /*This function is hooked up to upDateOnChanges() so that the UI will be updated 
+  whenever the length of the data source
+  changes: These changes are caused by the filter component
+  */
   updateUi() {
     if (this.gameService.allGames) {
       this.games = this.gameService.getGameList();
