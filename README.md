@@ -1,11 +1,11 @@
-# ApplicantExercise
+# Applicant Exercise
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+This project was generated with [Angular CLI] Run `npm install` in the project directory to install all the project's dependancies. 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+Run `npm start` in the project folder and Navigate to `http://localhost:4200/` in your browser. The app will automatically reload if you change any of the source files. I've added Angular's HMR(Hot Module Replacement) parameter to the startup script, thats why starting with `npm start`
+is preferred over `ng serve` in the dev environment
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
