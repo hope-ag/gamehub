@@ -9,9 +9,6 @@ section {
     margin-bottom: 2rem;
   }
   form {
-    & > label {
-      margin-bottom: 2rem;
-    }
     input,
     select {
       outline: none;
@@ -20,9 +17,15 @@ section {
       background-color: $clr-secondary;
       color: $clr-txt;
       margin-bottom: 3rem;
+      margin-top: 1rem;
       padding: 1rem;
       &::placeholder {
         color: lightgray;
+      }
+    }
+    input {
+      @include tablet-sm {
+        height: 4.5rem;
       }
     }
     // Remove the dropdown on the number input
@@ -46,9 +49,13 @@ section {
         background-color: $clr-secondary;
         width: 100%;
         padding: 0 1rem;
+        margin-top: 1rem;
         @include flex-row;
         justify-content: space-between;
         border-radius: 0;
+        @include tablet-sm {
+          height: 4.5rem;
+        }
         .arrow {
           border: solid $clr-txt;
           border-width: 0 2px 2px 0;

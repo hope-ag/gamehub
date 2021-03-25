@@ -3,6 +3,7 @@ main {
   .content {
     width: clamp(5rem, 95vw, 50rem);
     margin: auto;
+    margin-bottom: 8rem;
     .desc {
       h2 {
         text-transform: uppercase;
